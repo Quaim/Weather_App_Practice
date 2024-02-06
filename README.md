@@ -1,10 +1,7 @@
 # Weather Or Not
 
-This project is to develop a website for the artist Adamma Anwen Lloyd, with the goal of showcasing her work and attracting potential clients or buyers. We aim to include a gallery page with high-quality images of her work, an about the artist page and a contact form for enquiries or purchases. 
-
-As far as the user is concerned, they should be able to view Adamma's work and contact her for any commissions or purchases. This should be covered within our intended site.
-
-In terms of design, there should be a cohesive colour scheme and set of styles across the whole site to reiterate the artist's brand. Site layout should enhance rather than impede the user experience to give a welcoming, intuitive feel. Finally, the site layout should be responsive to enable easy navigation on all devices.
+This project is to develop a weather app that enables the user to enter a city name or using their current location as a source and receive information about the weather for the current day/date and a 5 day forecast in that location. 
+This project utilises basic html, css and javascript and the use of the open source API [openweathermap](https://openweathermap.org/). It combines the use of javascript functions, DOM manipulation and event listeners to access the the API and return the relevant information and insert it into the DOM as HTML. 
 
 <img src="https://github.com/mbriscoe/Ethereal-Expressions/assets/86828720/142e1d42-da4d-4aba-a683-342923bc8e1e" style="width:70%;">
 
