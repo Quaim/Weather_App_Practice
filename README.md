@@ -1,110 +1,140 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Weather Or Not
 
-Welcome USER_NAME,
+This project is to develop a website for the artist Adamma Anwen Lloyd, with the goal of showcasing her work and attracting potential clients or buyers. We aim to include a gallery page with high-quality images of her work, an about the artist page and a contact form for enquiries or purchases. 
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+As far as the user is concerned, they should be able to view Adamma's work and contact her for any commissions or purchases. This should be covered within our intended site.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+In terms of design, there should be a cohesive colour scheme and set of styles across the whole site to reiterate the artist's brand. Site layout should enhance rather than impede the user experience to give a welcoming, intuitive feel. Finally, the site layout should be responsive to enable easy navigation on all devices.
 
-## Gitpod Reminders
+<img src="https://github.com/mbriscoe/Ethereal-Expressions/assets/86828720/142e1d42-da4d-4aba-a683-342923bc8e1e" style="width:70%;">
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+# Contents
 
-`python3 -m http.server`
+1. [UX Design](#ux-design)
+2. [User Stories](#user-stories)
+3. [Features](#features)
+4. [Testing](#testing)
+5. [Deployment](#deployment)
+6. [Credits/Technologies Used](#credits)
+7. [Future Features](#future-features)
 
-A blue button should appear to click: _Make Public_,
+<a id="ux-design"></a>
+## UX Design
 
-Another blue button should appear to click: _Open Browser_.
+### Home Page Wireframe Design
+<img src="https://github.com/mbriscoe/Ethereal-Expressions/assets/86828720/7a577631-48c3-41e1-b3ff-28ff473ac2f0" style="width:70%;">
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
 
-A blue button should appear to click: _Make Public_,
 
-Another blue button should appear to click: _Open Browser_.
+<a id="user-stories"></a>
+## User Stories
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+- 
+  - 
+- 
+  - 
+- 
+  - 
+- 
+  - 
+- 
+  - 
+- 
+  - 
 
-To log into the Heroku toolbelt CLI:
+As can be seen from the project board, the completed sprint was composed of 17 separate items. Having used the MoSCoW approach to prioritisation, 10 were classified as "Must-Have" making up less than 60% of the tasks as recommended. The rest of the first sprint was made up of "Should-Have", "Could-Have" and bug fixes.
+The project backlog contains several "Could-Have" user stories and two "Won't Have" items.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+<img src="https://github.com/mbriscoe/Ethereal-Expressions/assets/86828720/cea3c3e8-7df9-4fb9-8418-7d43bef02a95" style="width:100%;">
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+<a id="features"></a>
+## Features
 
-------
+- **Navigation Bar**
 
-## Release History
+Navigation is provided via a bootstrap navbar. CSS code has been added to underline menu items on hover and tint the navbar for each page. Font Awesome icons have been added to each menu item to add visual clues.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+<img src="https://github.com/mbriscoe/Ethereal-Expressions/assets/86828720/6278e0e9-371f-4190-8527-9988f7a4d5c4" style="width:70%;">
 
-**September 20 2023:** Update Python version to 3.9.17.
+- **The Footer**
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+<a id="testing"></a>
+## Testing
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+### Manual Testing
+<img src="https://github.com/mbriscoe/Ethereal-Expressions/assets/86828720/c0e89b6c-78a8-42a2-8b48-bc6b39ac513e" style="width:100%;">
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+### Lighthouse
+The site was tested using Lighthouse with the following results:
+<img src="https://github.com/mbriscoe/Ethereal-Expressions/assets/86828720/ed031055-ecac-4a09-93e0-d9710011e550" style="width:70%;">
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+### Responsive Testing
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+Alongside the built in Bootstrap responsive CSS, media queries were used throughout our own CSS to provide a consistent user experience. Chrome dev tools were used frequently to test the site at standard screen sizes and the site was manually viewed on laptops, tablets and phones.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+<img src="https://github.com/mbriscoe/Ethereal-Expressions/assets/86828720/216eaf29-7853-4fe9-b3e1-4ed9ff705c84" style="width:70%;">
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+### Browser Compatibility
+The site was tested on the following browsers:
+- Chrome
+- Firefox
+- Edge
+- Opera
+<img src="https://github.com/mbriscoe/Ethereal-Expressions/assets/86828720/2104c398-4375-40d0-af15-25cba812c33e" style="width:70%;">
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+### Validator Testing
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+- HTML
 
-------
+  - No errors were returned when passing through the official [_W3C validator_](https://validator.w3.org/nu/?doc=https://mbriscoe.github.io/Ethereal-Expressions)
 
-## FAQ about the uptime script
+- CSS
+  - No errors were found with our own CSS code when passing through the official Jigsaw validator. However, there were many errors found in the Bootstrap CSS code, which is a normal result.
 
-**Why have you added this script?**
+## Bugs
+All bug fixes were dealt with efficiently and cleanly.
+- BUG: contact page width issue
+- BUG: Footer overlapping content
+- BUG: Shading display on gallery page
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+<a id="deployment"></a>
+## Deployment
 
-**How will this affect me?**
+- The site was deployed to GitHub pages from the main branch of the repository early in the developemnt stage for continuous deployment and checking.
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+- The live link can be found [_here_](https://mbriscoe.github.io/Ethereal-Expressions/)
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+<a id="credits"></a>
+## Credits
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+### Content
 
-**So….?**
+- 
+- 
+- 
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+### Media
 
-**Can I opt out?**
+- 
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+- 
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+- 
 
-**Anything more?**
+<a id="future-features"></a>
+## Future Features
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+There are various features and user stories that we were not able to implement due to time constraints, but would be added in future iterations of the website.
 
----
 
-Happy coding!
+
+
+
+A Weather or Not Production
+
+
