@@ -1,3 +1,4 @@
+const mainWeatherSection = document.querySelector("#weatherSection");
 const cityInput = document.querySelector("#city-input");
 const searchButton = document.querySelector("#search-btn");
 const userLocationButton = document.querySelector("#userlocation-btn");
@@ -75,6 +76,7 @@ const getCityCoordinates = () => {
     }).catch(() => {
         alert("An error occurred while fetching the coordinates!");
     });
+    
 }
 
 const getUserCoordinates = () => {
@@ -100,8 +102,50 @@ const getUserCoordinates = () => {
 }
 
 
+
+
+
+
 // searchButton.addEventListener("click", () => getCityCoordinates());
 
 userLocationButton.addEventListener("click", getUserCoordinates);
 searchButton.addEventListener("click", getCityCoordinates);
 cityInput.addEventListener("keyup", e => e.key === "Enter" && getCityCoordinates());
+
+
+// Function to add city to the list
+function addCityToList() {
+    // Get the text from the city search box
+    var name = document.getElementById("city-input").value;
+
+    var list = document.querySelectorAll(".list-group-item");
+
+
+    // Check if the input is not empty
+    if (name.trim() !== "") {
+        
+        // Create a new list item
+        var newListItem = document.createElement("li");
+        newListItem.className = "list-group-item";
+        newListItem.textContent = name;
+        
+        // Create an empty array to be filled with list items innerHTML
+        var listArray=[];
+        // Check if list item array
+        if(listArray !== "") {
+            for (var i=0;i<list.length;i++){
+                listArray.push(list[i].innerHTML);
+        }
+        
+        // Get reference to the existing ul
+        var searchListUl = document.getElementById("searchList");
+
+        // Append the new list item to the existing ul
+        if(!listArray.includes(name)) {
+
+        searchListUl.appendChild(newListItem);
+        }
+    }
+    }
+}
+
