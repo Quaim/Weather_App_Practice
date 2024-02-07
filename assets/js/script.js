@@ -4,7 +4,13 @@ const searchButton = document.querySelector("#search-btn");
 const userLocationButton = document.querySelector("#userlocation-btn");
 const currentWeatherDiv = document.querySelector(".current-weather");
 const daysForecastDiv = document.querySelector(".days-forecast");
-const API_KEY = "045a0084a08118b8ad2136beb78579bf"; // Paste your API here
+// const previousSearchHistory = document.querySelectorAll("#previous-search-history li .namedhistory");
+var searchHistoryDiv = document.getElementById("searchHistory");
+
+const searchHistoryContainer = document.getElementById("searchHistoryContainer");
+
+const API_KEY = "045a0084a08118b8ad2136beb78579bf"; //Ellis' API KEY use for TESTING ONLY
+
 // Create weather card HTML based on weather data
 const createWeatherCard = (cityName, weatherItem, index) => {
     if(index === 0) {
@@ -24,16 +30,20 @@ const createWeatherCard = (cityName, weatherItem, index) => {
         return `<div class="col mb-3">
                     <div class="card border-0 bg-secondary text-white">
                         <div class="card-body p-3 text-white">
-                            <h5 class="card-title fw-semibold">(${weatherItem.dt_txt.split(" ")[0]})</h5>
-                            <img src="https://openweathermap.org/img/wn/${weatherItem.weather[0].icon}.png" alt="weather icon">
+                            <h5 class="card-title fw-semibold">(${weatherItem.dt_txt.split(" ")[0]})</h5>  
+                            <h6>${weatherItem.weather[0].description}</h6>
+                            <img src="https://openweathermap.org/img/wn/${weatherItem.weather[0].icon}.png" alt="weather icon">                             
+                        </div>
+                        <div class="card-body p-3 text-white">                                                                                  
                             <h6 class="card-text my-3 mt-3">Temp: ${((weatherItem.main.temp - 273.15).toFixed(2))}°C</h6>
                             <h6 class="card-text my-3">Wind: ${weatherItem.wind.speed} M/S</h6>
                             <h6 class="card-text my-3">Humidity: ${weatherItem.main.humidity}%</h6>
-                        </div>
+                        </div>                        
                     </div>
                 </div>`;
     }
 }
+
 // Get weather details of passed latitude and longitude
 const getWeatherDetails = (cityName, latitude, longitude) => {
     const WEATHER_API_URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${API_KEY}`;
@@ -62,7 +72,9 @@ const getWeatherDetails = (cityName, latitude, longitude) => {
     }).catch(() => {
         alert("An error occurred while fetching the weather forecast!");
     });
+    
 }
+
 // Get coordinates of entered city name
 const getCityCoordinates = () => {
     const cityName = cityInput.value.trim();
@@ -73,10 +85,11 @@ const getCityCoordinates = () => {
         if (!data.length) return alert(`No coordinates found for ${cityName}`);
         const { lat, lon, name } = data[0];
         getWeatherDetails(name, lat, lon);
+        addCityToList();
     }).catch(() => {
         alert("An error occurred while fetching the coordinates!");
     });
-    
+    removeHome();
 }
 
 const getUserCoordinates = () => {
@@ -88,6 +101,7 @@ const getUserCoordinates = () => {
             fetch(API_URL).then(response => response.json()).then(data => {
                 const { name } = data[0];
                 getWeatherDetails(name, latitude, longitude);
+                addCityToList();
             }).catch(() => {
                 alert("An error occurred while fetching the city name!");
             });
@@ -99,19 +113,26 @@ const getUserCoordinates = () => {
                 alert("Geolocation request error. Please reset location permission.");
             }
         });
+        removeHome();
 }
 
+/*
+Function needs to take the city name, add it to a array. Take in the HTML for the li & output the array object at index0,1,2,3,4,5 etc replacing the li html
+*/
+// const presentPreviousHistory = () => {
+//     //Get city name
+//     let cityName = city.value.trim();
+//     //List for  previous city names
+//     let citylist = [];
+//     //Add searched for city name to list
+//     citylist = citylist.push(cityName);
+//     console.log(citylist);
 
-
-
-
-
-// searchButton.addEventListener("click", () => getCityCoordinates());
-
-userLocationButton.addEventListener("click", getUserCoordinates);
-searchButton.addEventListener("click", getCityCoordinates);
-cityInput.addEventListener("keyup", e => e.key === "Enter" && getCityCoordinates());
-
+//     //Get Search History names, run a loop for every object in array & output the content
+//     Array.from(previousSearchHistory).forEach(function(previousSearchHistory) {
+//         console.log(previousSearchHistory.textContent);
+//     });
+// }
 
 // Function to add city to the list
 function addCityToList() {
@@ -148,4 +169,21 @@ function addCityToList() {
     }
     }
 }
+
+const removeHome = () => {
+    mainWeatherSection.classList.remove('d-none');
+    searchHistoryContainer.classList.remove('d-none');
+    homePage.classList.add('d-none');
+}
+
+
+//Add event listener
+// searchButton.addEventListener("click", () => getCityCoordinates());
+
+userLocationButton.addEventListener("click", getUserCoordinates);
+searchButton.addEventListener("click", getCityCoordinates);
+cityInput.addEventListener("keyup", e => e.key === "Enter" && getCityCoordinates());
+// presentPreviousHistory();
+
+
 
