@@ -145,6 +145,7 @@ function addCityToList() {
     // Check if the input is not empty
     if (name.trim() !== "") {
         
+       
         // Create a new list item
         var newListItem = document.createElement("li");
         newListItem.className = "list-group-item";
@@ -163,8 +164,9 @@ function addCityToList() {
 
         // Append the new list item to the existing ul
         if(!listArray.includes(name)) {
+            
 
-        searchListUl.appendChild(newListItem);
+            searchListUl.appendChild(newListItem);
         }
     }
     }
