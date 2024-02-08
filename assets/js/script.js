@@ -113,26 +113,10 @@ const getUserCoordinates = () => {
                 alert("Geolocation request error. Please reset location permission.");
             }
         });
-        removeHome();
-}
+        removeHome(); // remove/add d-none class to hide the home panel and reveal the weather information
+    }
 
-/*
-Function needs to take the city name, add it to a array. Take in the HTML for the li & output the array object at index0,1,2,3,4,5 etc replacing the li html
-*/
-// const presentPreviousHistory = () => {
-//     //Get city name
-//     let cityName = city.value.trim();
-//     //List for  previous city names
-//     let citylist = [];
-//     //Add searched for city name to list
-//     citylist = citylist.push(cityName);
-//     console.log(citylist);
 
-//     //Get Search History names, run a loop for every object in array & output the content
-//     Array.from(previousSearchHistory).forEach(function(previousSearchHistory) {
-//         console.log(previousSearchHistory.textContent);
-//     });
-// }
 
 // Function to add city to the list
 function addCityToList() {
@@ -148,8 +132,11 @@ function addCityToList() {
        
         // Create a new list item
         var newListItem = document.createElement("li");
-        newListItem.className = "list-group-item";
-        newListItem.textContent = name;
+        newListItem.className = "list-group-item card border-0 bg-secondary text-white mt-3";
+       // Create capitalised version of the city name
+        var lowerName = name.toLowerCase();
+        var capName = lowerName.charAt(0).toUpperCase() + lowerName.slice(1);
+        newListItem.textContent = capName;
         
         // Create an empty array to be filled with list items innerHTML
         var listArray=[];
@@ -163,14 +150,17 @@ function addCityToList() {
         var searchListUl = document.getElementById("searchList");
 
         // Append the new list item to the existing ul
-        if(!listArray.includes(name)) {
+        if(!listArray.includes(capName)) {
             
 
             searchListUl.appendChild(newListItem);
+            
         }
     }
     }
 }
+
+// Function to remove/add d-none class to hide home page and reveal weather information
 
 const removeHome = () => {
     mainWeatherSection.classList.remove('d-none');
@@ -180,12 +170,8 @@ const removeHome = () => {
 
 
 //Add event listener
-// searchButton.addEventListener("click", () => getCityCoordinates());
-
 userLocationButton.addEventListener("click", getUserCoordinates);
 searchButton.addEventListener("click", getCityCoordinates);
 cityInput.addEventListener("keyup", e => e.key === "Enter" && getCityCoordinates());
-// presentPreviousHistory();
-
 
 
